@@ -1,0 +1,7 @@
+{
+  "env": {
+    "RAILS_GROUPS": {
+      "value": "heroku"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+<%= will_paginate @members, list_classes: %w(pagination justify-content-center) if Refinery::Members::Admin::MembersController.pageable?  %>
+<%= render 'sortable_list' %>

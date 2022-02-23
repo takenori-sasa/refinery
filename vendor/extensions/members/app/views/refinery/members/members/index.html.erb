@@ -1,0 +1,26 @@
+<div class="row pb-2">
+  <div class="col-12">
+    <h1>Members</h1>
+  </div>
+</div>
+<div class="row">
+  <% @members.each do |member| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 text-center mb-3" id="member-<%=raw member.id %>">
+      <%= image_fu member.photo,nil ,
+        class:'rounded-circle d-inline-flex',
+        style:"height: 200px;object-fit: cover;width: 200px;"
+      %>
+    <p>
+    <%=raw member.occupation %>
+    <br>
+    <%=raw member.university %>
+    </p>
+    <h4>
+      <%=raw member.name %>
+      <br>
+      <small><%=raw member.romanized_name%></small>
+    </h4>
+    <p><%=raw member.blurb%></p>
+    </div>
+  <% end %>
+</div>

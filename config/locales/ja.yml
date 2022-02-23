@@ -1,0 +1,379 @@
+---
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日"
+      short: "%m/%d"
+    month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    year_name: '%{year}年'
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+    prompts:
+      second: 秒
+      minute: 分
+      hour: 時
+      day: 日
+      month: 月
+      year: 年
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: 'バリデーションに失敗しました: %{errors}'
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      other_than: は%{count}以外の値にしてください
+      present: は入力しないでください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+    template:
+      body: 次の項目を確認してください
+      header:
+        one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+  helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: バイト
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: "、"
+      two_words_connector: "、"
+      words_connector: "、"
+  time:
+    am: 午前
+    formats:
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      middle: "%Y年%m月"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
+    pm: 午後
+  refinery:
+    plugins:
+      refinerycms_blog:
+        title: ブログ
+    blog:
+      admin:
+        categories:
+          category:
+            edit: このカテゴリを編集
+            delete: このカテゴリを削除
+          index:
+            no_items_yet: 'まだカテゴリが一つも登録されていません。「%{create}」をクリックし、カテゴリを作成して下さい。'
+        comments:
+          approved: '「%{author}さん」の投稿が承認されました。'
+          comment:
+            view_live_html: 'このコメントを見る<br/><em>(新規ウインドウに開かれます)</em>'
+            read: このコメントを読む
+            reject: このコメントを却下する
+            approve: このコメントを承認する
+          rejected: '「%{author}」によるコメントが却下されました。'
+          index:
+            no_items_yet: '%{type}に関するコメントがありません。'
+          show:
+            comment: コメント
+            blog_post: 投稿
+            from: 投稿者
+            date: 投稿時刻
+            message: コメント
+            details: 詳細
+            age: 投稿から
+            actions: アクション
+            back: 全てのコメントに戻る
+            reject: このコメントを却下する
+            approve: このコメントを承認する
+        posts:
+          form:
+            toggle_advanced_options: メタタグの設定メニューをアクセスするにはここをクリックして下さい
+            published_at: 公開時刻
+            custom_url: カスタムURL
+            custom_url_help: 投稿のURLをここのテキストとして登録する。
+            source_url: 参照元URL
+            source_url_help: 記事の参照元URLを登録出来ます。
+            source_url_title: 参照元ページのタイトル
+            source_url_title_help: 参照元ページのタイトルを入れて下さい。
+            author: 作者
+            author_help: 記事の作者として表示させる人を設定します。
+            copy_body: 本文を短説明文にコピーする
+            copy_body_help: 短説明文として本文を引用します。短説明文を空にすると自動的に反映されます。
+          index:
+            no_items_yet: '投稿がありません。「%{create}」をクリックし、作成して下さい。'
+          uncategorized:
+            no_items_yet: '未分類の投稿がありませす。'
+          post:
+            view_live_html: 'この投稿を見る。<br/><em>(新規ウィンドウに開かれます)</em>'
+            edit: この投稿を編集する
+            delete: この投稿を削除する
+            draft: 下書き
+        settings:
+          notification_recipients:
+            value: 通知の受信者
+            explanation: '投稿にコメントが出される度にRefineryが通知を送れます。'
+            hint: 'コメントが追加されたらメールで通知されます。'
+            example: "複数のメールアドを登録することが出来ます。入力例: jack@work.com, jill@office.com"
+            updated: '通知受信者の「%{recipients}」に通知が送信されました。'
+        submenu:
+          categories:
+            title: カテゴリ
+            manage: 管理
+            new: 新規カテゴリ作成
+          comments:
+            title: コメント
+            title_with_count: 'コメント (新規%{new_count}通)'
+            new: 新規
+            unmoderated: 新規
+            approved: 承認された
+            rejected: 却下された
+          posts:
+            title: 投稿
+            manage: 投稿管理
+            new: 新規投稿
+            uncategorized: 未分類
+          settings:
+            title: 設定
+            moderation: 管理する
+            update_notified: 通知者を変更・更新する
+            comments: コメント
+            teasers: 宣伝文
+      comment_mailer:
+        notification:
+          greeting: こんにちわ
+          you_recieved_new_comment: サイトに新規コメントが投稿されました。
+          comment_starts: --- コメント開始 ---
+          comment_ends: --- コメント終了 ---
+          from: 差出人
+          email: メール
+          message: メッセージ
+          approve: 承認
+          or: "か"
+          reject: 却下
+          this_comment: "このコメントを"
+          closing_line: 以上、
+          ps: '追記: 全てのコメントを見るにはRefineryブログの「コメント」に参照して下さい。'
+      shared:
+        categories:
+          title: 全てのカテゴリ
+        rss_feed:
+          title: RSSフィード
+          subscribe: フィードを登録する
+        posts:
+          other: 他の投稿
+          created_at: '投稿日:%{when}'
+          read_more: 続きを読む
+        comments:
+          singular: コメント
+          none: コメントが未登録
+        archives: 先月以前の記事
+        tags:
+          title: "全てのタグ"
+      categories:
+        show:
+          no_posts: 投稿がありません。
+      posts:
+        post:
+          filled_in: に分類されている
+        comment: コメント
+        comments:
+          by: '%{who}より'
+          time_ago: '%{time}前に'
+          thank_you: 'コメントをありがとうございます。'
+          thank_you_moderated: 'コメントをありがとうございます。コメントが承認待ちとされています。承認次第公開されます。'
+        index:
+          no_blog_articles_yet: ブログ記事がまだ投稿されてません。
+        show:
+          blog_home: トップページへ
+          comments:
+            title: コメント
+            add: コメントを投稿
+          other: 他のブログ投稿
+          filled_in: に分類されている
+          tagged: とのタグが付いている
+          submit: コメントを送信
+          name: 名前
+          email: メール
+          message: メッセージ
+          by: '投稿者:'
+          source: 参照元
+          category: カテゴリ
+          tag: タグ
+        tagged:
+          no_blog_articles_yet: ブログ記事がまだ投稿されてません。
+          posts_tagged: 投稿タグ
+        archive:
+          blog_archive_for: '%{date}'
+          no_blog_articles_posted: '%{date}付のブログ記事が投稿されてません。'
+  activerecord:
+    models:
+      refinery/blog/category: カテゴリ
+      refinery/blog/comment: コメント
+      refinery/blog/post: 投稿
+    attributes:
+      refinery/blog/category:
+        title: 題名
+      refinery/blog/comment:
+        name: 名前
+        email: メール
+        message: メッセージ
+      refinery/blog/post:
+        title: 題名
+        body: 本文
+        teaser: 宣伝文

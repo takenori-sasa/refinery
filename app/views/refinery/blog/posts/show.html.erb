@@ -1,0 +1,23 @@
+<div class="row">
+  <h1><%= @post.title %></h1>
+</div>
+<div class="row mb-3">
+  <div id="show_blog_post" class='col-lg-8 d-flex flex-column justify-content-between'>
+    <%= render 'post' %>
+    <%= render 'comments' %>
+  </div>
+  <aside class="col-lg-4 mt-3">
+    <%= render '/refinery/blog/shared/body_content_right' %>
+  </aside>
+</div>
+
+<!-- <div class="row"> -->
+<%= render 'nav' if next_or_previous?(@post) %>
+<!-- </div> -->
+<% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
+<% content_for :javascripts do %>
+  <%# enable AJAX'd post nav at your own risk until html5 history API implemented. %>
+  <%#= javascript_include_tag('refinery/blog/frontend') %>
+  <script src="http://w.sharethis.com/button/buttons.js"></script>
+  <script>stLight.options({publisher:'<%= Refinery::Blog.share_this_key %>'});</script>
+  <% end if Refinery::Blog::Post::ShareThis.enabled? %>

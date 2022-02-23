@@ -1,0 +1,53 @@
+<% if post.live? %>
+  <div class="card blog-post mb-2" id="<%= dom_id(post) %>">
+    <% if post.images.any? %>
+      <%= image_tag(post.images.first.url,
+                    :class=>"card-img-top w-100",
+                    :preserveAspectRatio=>"xMiYMid slice", 
+                    :focusable=>"false",
+                    :title=>'thumbnail',
+                    :style=>'object-fit: cover;height: 160px;',
+                   ) %>
+               <% end %>
+               <div class="card-body" id="<%= dom_id(post) %>">
+                 <h3 class="card-title"><%= link_to post.title, refinery.blog_post_path(post),class:"card-link" %></h3>
+                 <p class="details card-subtitle text-muted">
+                   <%= "#{post.author_username}"if post.author_username.present? %>
+                   <%=l post.published_at.to_date, :format => :default %>
+                 </p>
+                 <section class="clearfix card-text text-reset">
+                   <% if blog_post_teaser_enabled? %>
+                     <%= blog_post_teaser(post) %>
+                   <% else %>
+                     <%= post.body.html_safe %>
+                   <% end %>
+                 </section>
+                 <footer>
+                   <p>
+                     <% if blog_post_teaser_enabled? && post.custom_teaser.present? %>
+                       <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post),class: "card-link" %>
+                     <% end %>
+                   </p>
+                   <% if Refinery::Blog::Post.comments_allowed? %>
+                     <aside class="comment_count">
+                       <%= link_to "#{t('title', :scope => 'refinery.blog.posts.show.comments')} (#{post.comments.approved.count})", refinery.blog_post_path(post) << '#comments' %>
+                     </aside>
+                   <% end %>
+                   <aside class="categories">
+                     <% if (categories = post.categories.translated).any? %>
+                       <% categories.each do |category| %>
+                         <%=link_to category.title, refinery.blog_category_path(category),class:"badge badge-primary"  %>
+                       <% end %>
+                   </aside>
+                 <% end %>
+                 <% if (tags = post.tags).any? %>
+                   <aside class='tags'>
+                     <% tags.each do |tag| %>
+                       <%= link_to tag, refinery.blog_tagged_posts_path(tag.id, tag.name.parameterize),class:"badge badge-secondary badge-pill" %>
+                     <% end %>
+                   </aside>
+                 <% end %>
+                 </footer>
+               </div>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<nav  aria-label="blog post navigation">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <% if @post.prev.present? -%>
+        <%= link_to "&#171; ".html_safe + h(truncate(@post.prev.title)),
+          refinery.blog_post_path(@post.prev),
+          :class => 'prev page-link' %>
+      <% end -%>
+    </li>
+    <li class="page-item">
+      <%= link_to t('blog_home', :scope => 'refinery.blog.posts.show'),
+        refinery.blog_root_path,
+        :class => 'home page-link' %>
+    </li>
+    <% if @post.next.present? -%>
+      <li class="page-item">
+        <%= link_to h(truncate(@post.next.title)) + " &#187;".html_safe,
+          refinery.blog_post_path(@post.next),
+          :class => 'next page-link' %>
+      <% end -%>
+      </li>
+  </ul>
+</nav><!-- /next_prev_article -->

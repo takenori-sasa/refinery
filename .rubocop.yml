@@ -1,0 +1,29 @@
+inherit_from: .rubocop_todo.yml
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rubycw
+AllCops:
+  TargetRubyVersion: 2.6.5
+  # 除外するディレクトリ（自動生成されたファイル）
+  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/migrate/*
+    - 'node_modules/**/*'
+  NewCops: enable
+  DisplayCopNames: true
+
+# 日本語コメント有効
+Style/AsciiComments:
+  Enabled: false
+
+Bundler:
+  Enabled: true
+
+Gemspec:
+  Enabled: true
+
+Security:
+  Enabled: true

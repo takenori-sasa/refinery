@@ -1,0 +1,43 @@
+<% flash.each do |key, value| %>
+  <div id="flash" class="flash flash_<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+<article class="blog-post">
+  <header class='mb-3'>
+    <section class="details">
+      <%= content_tag(:div, "#{t('by', :scope => 'refinery.blog.posts.show')}#{@post.author_username}", :class => "blog_author") if @post.author_username.present? %>
+      <time datetime="<%=l @post.published_at.to_date, :format => :default %>" class="posted_at">
+        <%= t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(@post.published_at.to_date, :format => :long)) %>
+      </time>
+      <% if @post.source_url.present? %>
+        <div class="blog_source">
+          <%= "#{t('source', :scope => 'refinery.blog.posts.show')}: " %>
+          <%= link_to (@post.source_url_title.blank? ? @post.source_url : @post.source_url_title), @post.source_url %>
+        </div>
+      <% end %>
+      <% if (categories = @post.categories).any? %>
+        <aside class="filled_in">
+          <%= "#{t('category', :scope => 'refinery.blog.posts.show')}:" %>
+          <% categories.each do |category| %>
+            <%=link_to category.title, refinery.blog_category_path(category),class:"badge badge-primary"  %>
+          <% end %>
+        </aside>
+      <% end %>
+    <% if (tags = @post.tags).any? %>
+      <aside class='tags'>
+          <%= "#{t('tag', :scope => 'refinery.blog.posts.show')}:" %>
+        <% tags.each do |tag| %>
+          <%= link_to tag, refinery.blog_tagged_posts_path(tag.id, tag.name.parameterize),class:"badge badge-secondary badge-pill" %>
+        <% end %>
+      </aside>
+    <% end %>
+    </section>
+  </header>
+  <%= @post.body.html_safe %>
+
+  <% if Refinery::Blog::Post::ShareThis.enabled? %>
+    <span class="st_sharethis" displayText="ShareThis"></span>
+  <% end %>
+</article>
+<%= render '/refinery/draft_page_message' unless @post.nil? or @post.live? -%>

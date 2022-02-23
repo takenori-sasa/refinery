@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success"> 
+    <%= link_to refinery.root_path, itemprop: "url",class:"navbar-brand" do %>
+    <%= Refinery::Core.site_name %>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <%= navbar_menu(refinery_menu_pages).to_html %>
+  </div>
+</nav>

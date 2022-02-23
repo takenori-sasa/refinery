@@ -1,0 +1,19 @@
+<div class="row">
+  <h1><%= t('.blog_archive_for', :date => @date_title) %></h1>
+</div>
+<div class="row">
+
+  <div class="col-8">
+    <% if @posts.any? %>
+      <div class="card-columns" id='blog_posts'>
+        <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+        <%= will_paginate @posts , list_classes: %w(pagination justify-content-center) %>
+      </div>
+    <% else %>
+    <p><%= t('.no_blog_articles_posted', :date => @date_title) %></p>
+    <% end %>
+  </div>
+  <div class="col-4">
+    <%= render '/refinery/blog/shared/body_content_right' %>
+  </div>
+</div>

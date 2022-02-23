@@ -1,0 +1,8 @@
+<% if @categories.any? %>
+  <h4><%= t('.title') %></h4>
+  <nav id="categories" class='mb-1'>
+    <% @categories.each do |category| %>
+      <%=link_to category.title, refinery.blog_category_path(category),class:"badge badge-primary#{ ' active' if @category.present? && @category.id == category.id}"  %>
+    <% end %>
+  </nav>
+<% end %>

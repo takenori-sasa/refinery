@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+  datastore:
+    image: busybox
+    volumes:
+      - db:/var/lib/postgresql/data:cached
+      - bundle:/usr/local/bundle:cached
+  db:
+    image: keinos/sqlite3:latest
+    volumes_from:
+      - datastore
+    ports:
+      - 5432:5432 
+  app: &app_base
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      TZ: Asia/Tokyo
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app:cached
+    ports:
+      - 3000:3000
+    depends_on:
+      - db  
+    volumes_from:
+      - datastore  
+    networks:
+      - default
+    tty: true
+    stdin_open: true
+  solargraph:
+    <<: *app_base
+    ports:
+      - 7658:7658
+    depends_on: []
+    command: [
+      "solargraph", "socket",
+      "--host", "0.0.0.0",
+      "--port", "7658"]
+    restart: always
+
+volumes:
+  db:
+    driver: local
+  bundle:
+    driver: local  
+

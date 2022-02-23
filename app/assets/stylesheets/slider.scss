@@ -1,0 +1,19 @@
+.slick-prev,
+.slick-next {
+  filter: invert(1);
+}
+.slick-next {
+  right: 0px !important;
+}
+
+.slick-prev {
+  left: 0px !important;
+  z-index: 10;
+}
+.jumbotron-carousel.slick-slider {
+  margin: 0 !important;
+  /* the parent */
+  .slick-list {
+    margin: 0 !important;
+  }
+}

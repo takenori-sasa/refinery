@@ -1,0 +1,19 @@
+<div class="row">
+  <h1><%= @category.title %></h1>
+</div>
+<div class="row">
+
+  <div class="col-8">
+    <% if @posts.any? %>
+      <div class="card-columns" id='blog_posts'>
+        <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+      </div>
+        <%= will_paginate @posts , list_classes: %w(pagination justify-content-center) %>
+    <% else %>
+      <%= t('.no_posts') %>
+    <% end %>
+  </div>
+  <div class="col-4">
+  <%= render "/refinery/blog/shared/categories" %>
+  </div>
+</div>

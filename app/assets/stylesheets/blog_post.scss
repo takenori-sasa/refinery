@@ -1,0 +1,11 @@
+.card.blog-post {
+  >.card-body {
+    >.card-text {
+      >* {
+        font-size: inherit;
+        font-weight: inherit;
+        margin: inherit;
+      }
+    }
+  }
+}

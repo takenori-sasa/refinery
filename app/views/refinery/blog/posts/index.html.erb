@@ -1,0 +1,23 @@
+<div class="row pb-2">
+  <div class="col-12">
+    <h1>
+      <%# <%= raw @page.content_for(Refinery::Pages.default_parts.second[:slug].to_sym) %>
+      Blog
+    </h1>
+  </div>
+</div>
+<div class="row pb-2">
+  <div class="col-xl-8" id="blog_posts">
+    <% if @posts.any? %>
+      <div class="card-columns">
+        <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+      </div>
+      <%= will_paginate @posts , list_classes: %w(pagination justify-content-center) %>
+    <% else %>
+      <p><%= t('.no_blog_articles_yet') %></p>
+    <% end %>
+  </div>
+  <div class="col-xl-4">
+    <%= render '/refinery/blog/shared/body_content_right' %>
+  </div>
+</div>

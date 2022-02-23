@@ -1,0 +1,16 @@
+<div class='container'>
+  <div class="row">
+    <section class="col">
+      <h6>Footer Menu</h6>
+      <div id="footer_menu" class="footer_menu">
+        <%= footer_menu(link_css:'text-reset').to_html %>
+      </div>
+    </section>
+    <section class="col">
+      <p>
+        <%= t('.copyright', :year => Time.now.year,
+              :site_name => Refinery::Core.site_name) %>
+      </p>
+    </section>
+  </div>
+</div>
